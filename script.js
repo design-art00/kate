@@ -28,6 +28,19 @@ const ME = {
   cityEn:  "Moscow"
 };
 
+const TOOLS = [   // ✏️ инструменты, с которыми работаю
+  { name:"Figma", icon:"images/tools/figma.svg" },
+  { name:"Photoshop", icon:"images/tools/photoshop.svg" },
+  { name:"Illustrator", icon:"images/tools/illustrator.svg" },
+  { name:"After Effects", icon:"images/tools/aftereffects.svg" },
+  { name:"Notion", icon:"images/tools/notion.svg" },
+  { name:"Claude", icon:"images/tools/claude.svg" },
+  { name:"ChatGPT", icon:"images/tools/chatgpt.svg" },
+  { name:"HTML", icon:"images/tools/html5.svg" },
+  { name:"CSS", icon:"images/tools/css3.svg" },
+  { name:"GitHub", icon:"images/tools/github.svg" }
+];
+
 const PROJECTS = [
   { id:"p1", name:"Корпоративный сайт для строительной компании", nameEn:"Corporate website for a construction company", kind:"Веб-сайты", year:"2025",
     grad:"linear-gradient(140deg,#ff9ec0,#ff5f8f)", mark:"К", image:"images/p1-image.jpg",
@@ -79,14 +92,21 @@ const PROJECTS = [
           "The result: a complete UI kit and dozens of personal-account screens built on a consistent component system, ready to hand off to development."],
     gallery:["images/p3-gallery-1.jpg","images/p3-gallery-2.jpg","images/p3-gallery-3.jpg"],
     link:"https://www.figma.com/design/mdJFpFbQbtuIpo1OkfGTEK/" },
-  { id:"p4", name:"Название проекта", nameEn:"Project name", kind:"Веб-сайты", year:"2024",
-    grad:"linear-gradient(140deg,#9beecd,#2fb99a)", mark:"D",
-    role:"Дизайн и вёрстка", roleEn:"Design and layout", client:"Личный проект", clientEn:"Personal project",
-    tags:["Landing","Адаптив","Анимация"],
-    tagsEn:["Landing page","Responsive","Animation"],
-    text:["Одностраничный сайт: структура, визуал, адаптив под мобильные и лёгкая анимация появления блоков."],
-    textEn:["A one-page site: structure, visuals, mobile-responsive layout, and light entrance animations for the blocks."],
-    link:"#" },
+  { id:"p4", name:"Лендинг для компании «ЯТЭК» по книге «Кысыл-Сыр»", nameEn:"Landing page for YATEC based on the «Kysyl-Syr» book", kind:"Веб-сайты", year:"2025",
+    grad:"linear-gradient(140deg,#9beecd,#2fb99a)", mark:"Я",
+    image:"images/p4-image.jpg",
+    role:"UX/UI-дизайнер (студия ArtGorka)", roleEn:"UX/UI designer (ArtGorka studio)",
+    client:"«ЯТЭК» — газодобывающая компания, Якутия", clientEn:"YATEC — a gas production company, Yakutia",
+    tags:["Лендинг","Одностраничный","Коммерческий"],
+    tagsEn:["Landing page","One-page","Commercial"],
+    text:["Лендинг для компании «ЯТЭК» по макету книги «Кысыл-Сыр» — газовая столица Якутии. Задача — раскрыть информацию о главном месторождении нефти и газа Якутии на основе готового макета книги.",
+          "Сначала отсмотрела макет книги, по которой предстояло собрать лонгрид. Затем собрала макет в общей стилистике сайта компании, совместив её с содержанием и стилистикой книги — вошли не все блоки лонгрида, только часть.",
+          "Переработала схему и иконки в единой стилистике сайта, адаптировала таймлайн истории компании под разные устройства и добавила блок для видео о посёлке Кысыл-Сыр, которого не было в исходной книге. Готовый макет подготовила для адаптивной вёрстки и передала верстальщику."],
+    textEn:["A landing page for YATEC based on the layout of the «Kysyl-Syr» book — the gas capital of Yakutia. The task was to present the region's main oil-and-gas field, building on a ready-made book layout.",
+          "I started by reviewing the book layout to plan the long-read. Then I built the page in the company site's visual style, blending it with the book's content and style — only part of the long-read's blocks made it into the page.",
+          "I reworked the diagram and icons to match the site's overall style, adapted the company history timeline for different devices, and added a video block about Kysyl-Syr that wasn't in the original book. The finished layout was prepared for responsive markup and handed off to a developer."],
+    gallery:["images/p4-gallery-1.jpg","images/p4-gallery-2.jpg","images/p4-gallery-3.jpg","images/p4-gallery-4.jpg"],
+    link:"https://yatec.ru/about/book/" },
   { id:"p5", name:"Название проекта", nameEn:"Project name", kind:"Сборник по граф. дизайну", year:"2026",
     grad:"linear-gradient(140deg,#ffd89b,#f79a3e)", mark:"E",
     role:"Иллюстратор", roleEn:"Illustrator", client:"Издание", clientEn:"Publication",
@@ -1296,7 +1316,7 @@ function aboutHTML(){
     <h3>${t("aboutDoing")}</h3>
     <p>${t("aboutDoingText")}</p>
     <h3>${t("aboutTools")}</h3>
-    <div class="tags">${["Figma","Photoshop","Illustrator","After Effects","Blender","Notion"].map(tg=>`<span class="tag">${tg}</span>`).join("")}</div>
+    <div class="tools-grid">${TOOLS.map(tool=>`<div class="tool-chip"><img class="tool-icon" src="${esc(tool.icon)}" alt="${esc(tool.name)}"><span>${esc(tool.name)}</span></div>`).join("")}</div>
     <h3>${t("aboutExp")}</h3>
     <p>${t("aboutExpText")}</p>
     <h3>${t("aboutNext")}</h3>
