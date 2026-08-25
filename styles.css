@@ -1168,7 +1168,7 @@ a{
 .chat-widget{
   position:absolute;
   left:16px;
-  bottom:112px;
+  bottom:max(8px,env(safe-area-inset-bottom));
   z-index:150;
   width:220px;
   padding:14px;
